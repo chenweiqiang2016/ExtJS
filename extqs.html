@@ -1,0 +1,63 @@
+<html>
+<head>
+	<script type="text/javascript" src="env/ext-all.js"></script>
+	<script type="text/javascript" src="env/ext-lang-zh_CN.js"></script>
+	<link type="text/css" href="env/resources/css/ext-all.css" rel="stylesheet"/>
+</head>
+<body>
+	<!--
+	1.操作DOM节点简单
+	2.丰富的界面组件
+	3.事件机制简洁
+     -->
+	<script type="text/javascript">
+	//Ext JS和HTML页面加载完成后执行该函数
+	Ext.onReady(function(){
+		var bn = Ext.create('Ext.Button',
+		{
+			text: "单击我",
+			scale: "large",
+			icon: "home.gif",
+			renderTo: Ext.getBody(), //指定将按钮放入body元素内
+			handler: function() //为该按钮绑定事件处理函数
+			{
+				//获取ID为target的元素，并控制它
+				Ext.fly("target")
+				      .setHeight(80)
+				      .setWidth(80)
+				      .center()
+				      .highlight() //高亮 有一个颜色变化的效果
+				      .setStyle("background-color", "#f0f")
+				      .setStyle("border", "2px solid black");
+             
+			}
+		});
+	});
+
+
+	//Ext的属性
+	alert(Ext.isFF5); //是否为FireFox5
+	alert(Ext.firefoxVersion);
+
+	//Ext.is 和 Ext.support是两个非常有用的对象 它含有的属性判定系统 浏览器信息
+	alert(Ext.is.Android);
+	//要验证 alert(Ext.supports.CSS3DTransform) //浏览器是否支持CSS3新特性
+
+    //alert优先执行
+    //Ext.Loader.onReady的别名
+	Ext.onReady(function(){
+		alert("Ext JS 和 HTML 加载完毕");
+	});
+
+
+    var fn = function(){
+    	alert("用户的姓名是:" + this.name); //this将代表user对象
+    }
+
+    var user = {name: "陈伟强"}
+
+	Ext.onReady(fn, user); //user参数是scope 函数执行的范围
+	</script>
+	<div id="target"></div>
+</body>
+</html>
