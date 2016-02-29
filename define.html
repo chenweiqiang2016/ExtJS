@@ -1,0 +1,66 @@
+<html>
+<head>
+	<script type="text/javascript" src="env/ext-all.js"></script>
+	<script type="text/javascript" src="env/ext-lang-zh_CN.js"></script>
+	<link type="text/css" href="env/resources/css/ext-all.css" rel="stylesheet" />
+</head>
+<body>
+	<script type="text/javascript">
+
+	//基本创建方法
+	Ext.define("CrazyIt.User",
+	{
+       name: "陈伟强",
+       walk: function(){
+           alert("正在缓慢行走...");
+       }
+    }, function()
+    {
+        alert("类创建成功");
+     });
+
+     //CrazyIt.User user = new CrazyIt.User();
+     var user = new CrazyIt.User();
+     user.walk();
+
+
+
+    //构造器 和 继承
+    Ext.define("CrazyIt.Animal",
+    {
+        weight: 50
+    });
+
+    Ext.define("CrazyIt.Dog",
+    {   
+    	extend: CrazyIt.Animal,
+    	constructor: function(name, age){
+    		this.name = name;
+    		this.age = age;
+    	}
+    });
+
+    var d = new CrazyIt.Dog("qiqi", 20);
+    document.writeln("d的名字为: " + d.name + "<br/>" + "d的年龄为: " + d.age + "<br/>" + "d的重量是: " + d.weight);
+
+
+    //config属性 配置选项
+    Ext.define("CrazyIt.Person",
+    {
+    	config:
+    	{
+    		name: "cwq",
+    		age: "25"
+    	},
+    	constructor: function(cfg){
+    		this.initConfig(cfg); //应该是固定的调用方法
+    	}
+    });
+
+    var p = new CrazyIt.Person();
+    p.setName("ligang");
+    p.setAge(50);
+    alert(p.getName() + p.getAge());
+    </script>
+</body>
+</html>

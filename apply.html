@@ -1,0 +1,31 @@
+<html>
+<head>
+	<meta http-equiv="ContentType" content="text/html; charset=utf8">
+	<script type="text/javascript" src="env/ext-all.js"></script>
+	<script type="text/javascript" src="env/ext-lang-zh_CN.js"></script>
+	<link type="text/css" href="env/resources/css/ext-all.css" rel="stylesheet" />
+</head>
+
+<body>
+	<script type="text/javascript">
+	var user = {
+		       name: "孙悟空",
+	           gender: "男",
+	           age: 500
+              };
+
+    var cat = {
+    	        name: "叮当猫",
+                color: "white"
+               };
+
+    Ext.apply(cat, user); //前面的被改变
+    //Ext.applyIf(cat, user);
+
+    for(var propName in cat){
+    	document.writeln(propName + "-->" + cat[propName] + "<br/>");
+    }
+
+	</script>
+</body>
+</html>

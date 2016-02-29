@@ -1,0 +1,25 @@
+<html>
+<head>
+	<meta http-equiv="contentType" content="text/html; charset=utf8">
+	<script type="text/javascript" src="env/ext-all.js"></script>
+	<script type="text/javascript" src="env/ext-lang-zh_CN.js"></script>
+	<link type="text/css" href="env/resources/css/ext-all.css" rel="stylesheet" />
+</head>
+
+<body>
+	<script type="text/javascript">
+	var user = {
+		name: 'chenweiqiang',
+		age: 20
+	};
+	Ext.iterate(user, function(key, value, myself){
+		document.writeln(key + "->" + value + '<br/>');
+	});
+
+	var books = ['疯狂Java讲义', '疯狂Ajax讲义'];
+	Ext.each(books, function(book, index, arr){
+        document.writeln("第" + index + "几本书是: " + book + "<br/>");
+	});
+	</script>
+</body>
+</html>
